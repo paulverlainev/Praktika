@@ -1,0 +1,31 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        MaxHeight="350"
+        MaxWidth="400"
+        x:Class="autoservice.Form"
+        Title="Form">
+    <Grid>
+        <UniformGrid Columns="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Margin = "90 10 0 0" FontSize = "20" FontWeight="Bold">Записаться на услугу</TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin = "0 25 0 0">Название услуги: </TextBlock>
+                <TextBox Name="service" x:CompileBindings="False" Text="{Binding service}" Width="200" Height="5" Margin = "10 0 0 0" ></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin = "0 25 0 0">Номер телефона: </TextBlock>
+                <TextBox Name="number" x:CompileBindings="False" Text="{Binding number}" Width="200" Height="5" Margin = "10 0 0 0" ></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin = "0 25 0 0">Описание проблемы: </TextBlock>
+                <TextBox Name="comment" x:CompileBindings="False" Text="{Binding comment}" Width="200" Height="5" Margin = "10 0 0 0" ></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Name="Save" Content="Сохранить" Click="Saves"  Margin = "0 15 0 10"></Button>
+                <Button Name="Back" Content="Назад" Click="Backs"  Margin = "165 15 0 10"></Button>
+            </StackPanel>
+        </UniformGrid>
+    </Grid>
+</Window>

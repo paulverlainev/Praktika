@@ -1,0 +1,69 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        MaxHeight="600"
+        MaxWidth="700"
+        x:Class="autoservice.ClientWindow"
+        Title="Услуги">
+    <Grid>
+       <StackPanel Orientation="Vertical">
+           <TextBlock Margin = "10 10 0 0" FontSize = "20" FontWeight="Bold"> Таблица </TextBlock>
+          
+           <StackPanel Orientation="Horizontal">
+               <TextBlock VerticalAlignment="Center" Margin = "10 10 0 0"> Поиск по  </TextBlock>
+               <TextBox Name="Search_" Width="200" Margin ="65 10 0 0" TextChanged="Search"></TextBox>
+           </StackPanel> 
+           
+           <StackPanel Orientation="Horizontal">
+               <TextBlock VerticalAlignment="Center" x:Name="txtShow" Margin ="10 10 0 0">Фильтрация </TextBlock>
+               
+               <ComboBox Name="CmbDiscount" x:CompileBindings="False" SelectionChanged="Cmb_Discount" Width="200" Margin ="22 10 0 0">
+                   <ComboBox.ItemTemplate>
+                       <DataTemplate>
+                           <TextBlock Text="{Binding }"></TextBlock>
+                       </DataTemplate>
+                   </ComboBox.ItemTemplate>
+               </ComboBox>
+           </StackPanel>
+           <StackPanel>
+           <Button Name="Free" Content="Записаться на услугу" Click="SignUp" Margin ="10 20 0 0" ></Button>
+               </StackPanel>
+           
+       <DataGrid Name="Works"  x:CompileBindings="False" Margin ="10 20 0 0" Height="300">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Длительность" Binding="{Binding extended}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Цена" Binding="{Binding price}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Скидка" Binding="{Binding discount}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Цена по скидке" Binding="{Binding discountprice}"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="Изображение">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Margin="20" Height="45" Width="45" Source="{Binding image}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+           
+       <StackPanel Orientation="Horizontal" Margin="10 20 20 0">
+           <Button Name="Back" Content="Назад" Click="Backs"></Button>
+           
+           <StackPanel Margin="10 0 00 0">
+               <Button Name="Reset" Content="Сброс фильтра" Click="Resets"></Button>
+           </StackPanel>
+           
+       </StackPanel>
+           <StackPanel Orientation="Horizontal" Margin="10 20 20 0">
+               <Button Name="Sort" Content="Сначала меньшее" Click="SortsV"></Button>
+              
+               <StackPanel Margin="10 0 00 0">
+                   <Button Name="Sorts" Content="Сначала большее" Click="SortsU"></Button>
+               </StackPanel>
+               
+           </StackPanel>
+       </StackPanel>
+   </Grid>
+</Window>
